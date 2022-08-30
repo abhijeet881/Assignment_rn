@@ -83,7 +83,7 @@ class HomeController extends GetxController {
           title: "",
             middleText: "Wow!, You did it!",
             backgroundColor: Colors.white,
-            middleTextStyle: TextStyle(color: Colors.black),
+            middleTextStyle: const TextStyle(color: Colors.black),
             radius: 8
         );
       }

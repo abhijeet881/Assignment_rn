@@ -23,7 +23,8 @@ class HomeScreen extends GetView<HomeController> {
                     Expanded(
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Colors.grey,
+                          border: Border.all(color: Colors.black,width: 2),
+                          color: Colors.white,
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: TextField(
@@ -41,6 +42,7 @@ class HomeScreen extends GetView<HomeController> {
                         ),
                       ),
                     ),
+                    const SizedBox(width: 16,),
                     ElevatedButton(
                         onPressed: () {
                           controller.gridLogic();
