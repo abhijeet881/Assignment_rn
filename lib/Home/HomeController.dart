@@ -2,34 +2,29 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
-
 import '../Model/ModelGrid.dart';
 
 class HomeController extends GetxController {
   List<ModelGrid> _grids = [];
   double _sqrtNumber = 0;
+  TextEditingController editTextController = TextEditingController();
+
 
   double get sqrtNumber => _sqrtNumber;
-
   set sqrtNumber(double value) {
     _sqrtNumber = value;
     update();
   }
 
   List<ModelGrid> get grids => _grids;
-
   set grids(List<ModelGrid> value) {
     _grids = value;
     update();
   }
 
-  TextEditingController editTextController = TextEditingController();
 
-  @override
-  void onInit() {
-    super.onInit();
-  }
+
+
 
   void gridLogic() {
     if (editTextController.text.toString().isNotEmpty) {
