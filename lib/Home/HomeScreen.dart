@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -17,13 +16,14 @@ class HomeScreen extends GetView<HomeController> {
           body: Container(
             margin: const EdgeInsets.all(16),
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Row(
                   children: [
                     Expanded(
                       child: Container(
                         decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black,width: 2),
+                          border: Border.all(color: Colors.black, width: 2),
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(8),
                         ),
@@ -42,7 +42,9 @@ class HomeScreen extends GetView<HomeController> {
                         ),
                       ),
                     ),
-                    const SizedBox(width: 16,),
+                    const SizedBox(
+                      width: 16,
+                    ),
                     ElevatedButton(
                         onPressed: () {
                           controller.gridLogic();
@@ -53,26 +55,37 @@ class HomeScreen extends GetView<HomeController> {
                         ))
                   ],
                 ),
-                const SizedBox(height: 16,),
-                Expanded(
-                  child: controller.sqrtNumber.round()>0?GridView.count(
-                    crossAxisCount: controller.sqrtNumber.round(),
-                    children: List.generate(controller.grids.length, (index) {
-                      return GestureDetector(
-                        onTap: (){
-                          controller.onTapLogic(index);
-                        },
-                        child: Container(
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.black,width: 1),
-                              color: controller.grids[index].value==0?Colors.white:controller.grids[index].value==1?Colors.red:Colors.blue,),
-                          child: const SizedBox(),
-                        ),
-                      );
-                    }),
-                  ):const SizedBox(),
+                const SizedBox(
+                  height: 32,
                 ),
+                controller.sqrtNumber.round() > 0
+                    ? Expanded(
+                      child: GridView.count(
+                        crossAxisCount: controller.sqrtNumber.round(),
+                        children:
+                            List.generate(controller.grids.length, (index) {
+                          return GestureDetector(
+                            onTap: () {
+                              controller.onTapLogic(index);
+                            },
+                            child: Container(
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: Colors.black, width: 1),
+                                color: controller.grids[index].value == 0
+                                    ? Colors.white
+                                    : controller.grids[index].value == 1
+                                        ? Colors.red
+                                        : Colors.blue,
+                              ),
+                              child: const SizedBox(),
+                            ),
+                          );
+                        }),
+                      ),
+                    )
+                    : const SizedBox(),
               ],
             ),
           ));

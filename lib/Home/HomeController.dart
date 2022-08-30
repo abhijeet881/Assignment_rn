@@ -8,7 +8,7 @@ import '../Model/ModelGrid.dart';
 
 class HomeController extends GetxController {
   List<ModelGrid> _grids = [];
-  double _sqrtNumber = 2;
+  double _sqrtNumber = 0;
 
   double get sqrtNumber => _sqrtNumber;
 
