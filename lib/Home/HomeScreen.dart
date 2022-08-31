@@ -15,7 +15,7 @@ class HomeScreen extends GetView<HomeController> {
             title:  Text(Constants.title),
           ),
           body: Container(
-            margin: const EdgeInsets.all(16),
+            margin:  EdgeInsets.all(Constants.size16),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -24,9 +24,9 @@ class HomeScreen extends GetView<HomeController> {
                     Expanded(
                       child: Container(
                         decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black, width: 2),
+                          border: Border.all(color: Colors.black, width: Constants.size2),
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: BorderRadius.circular(Constants.size8),
                         ),
                         child: TextField(
                           controller: controllerHome.editTextController,
@@ -35,16 +35,16 @@ class HomeScreen extends GetView<HomeController> {
                             FilteringTextInputFormatter.digitsOnly
                           ],
                           decoration:  InputDecoration(
-                            hintStyle: const TextStyle(fontSize: 17),
+                            hintStyle:  TextStyle(fontSize: Constants.size16),
                             hintText: Constants.editTextHint,
                             border: InputBorder.none,
-                            contentPadding: const EdgeInsets.all(20),
+                            contentPadding:  EdgeInsets.all(Constants.size16),
                           ),
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      width: 16,
+                     SizedBox(
+                      width: Constants.size16,
                     ),
                     ElevatedButton(
                         onPressed: () {
@@ -56,8 +56,8 @@ class HomeScreen extends GetView<HomeController> {
                         ))
                   ],
                 ),
-                const SizedBox(
-                  height: 32,
+                 SizedBox(
+                  height: Constants.size32,
                 ),
                 controller.sqrtNumber.round() > 0
                     ? Expanded(
@@ -73,7 +73,7 @@ class HomeScreen extends GetView<HomeController> {
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
                                 border: Border.all(
-                                    color: Colors.black, width: 1),
+                                    color: Colors.black, width: Constants.size1),
                                 color: controller.grids[index].value == 0
                                     ? Colors.white
                                     : controller.grids[index].value == 1
