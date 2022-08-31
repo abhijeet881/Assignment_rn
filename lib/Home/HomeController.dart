@@ -58,9 +58,9 @@ class HomeController extends GetxController {
     if (grids[index].value == 1) {
       List<ModelGrid> temp = grids;
       temp[index].value = 2;
-      for (int j = 0; j < temp.length; j++) {
-        if (temp[j].value == 0) {
-          tempG.add(temp[j].id);
+      for (ModelGrid model in temp) {
+        if (model.value == 0) {
+          tempG.add(model.id);
         }
       }
       if (tempG.isNotEmpty) {
