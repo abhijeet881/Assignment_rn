@@ -6,25 +6,23 @@ import '../Model/ModelGrid.dart';
 
 class HomeController extends GetxController {
   List<ModelGrid> _grids = [];
+
   double _sqrtNumber = 0;
   TextEditingController editTextController = TextEditingController();
 
-
   double get sqrtNumber => _sqrtNumber;
+
   set sqrtNumber(double value) {
     _sqrtNumber = value;
     update();
   }
 
   List<ModelGrid> get grids => _grids;
+
   set grids(List<ModelGrid> value) {
     _grids = value;
     update();
   }
-
-
-
-
 
   void gridLogic() {
     if (editTextController.text.toString().isNotEmpty) {
@@ -37,6 +35,7 @@ class HomeController extends GetxController {
             i++) {
           var model = ModelGrid();
           model.value = 0;
+          model.id = i;
           grids.add(model);
         }
         Future.delayed(const Duration(seconds: 3), () {
@@ -55,33 +54,27 @@ class HomeController extends GetxController {
   }
 
   void onTapLogic(int index) {
+    List<int> tempG = [];
     if (grids[index].value == 1) {
       List<ModelGrid> temp = grids;
       temp[index].value = 2;
-      var ranIndex = -1;
-      var exist = 0;
-      for (int i = 0; i < grids.length; i++) {
-        var rng = Random();
-        ranIndex = rng.nextInt(temp.length);
-        if (temp[ranIndex].value == 0) {
-          exist = 1;
-          break;
+      for (int j = 0; j < temp.length; j++) {
+        if (temp[j].value == 0) {
+          tempG.add(temp[j].id);
         }
       }
-
-      if (temp[ranIndex].value != 2) {
-        temp[ranIndex].value = 1;
-      }
-      grids = temp;
-      if (exist == 0) {
+      if (tempG.isNotEmpty) {
+        var ranId = tempG[Random().nextInt(tempG.length)];
+        temp[ranId].value = 1;
+      }else {
         Get.defaultDialog(
-          title: "",
+            title: "",
             middleText: "Wow!, You did it!",
             backgroundColor: Colors.white,
             middleTextStyle: const TextStyle(color: Colors.black),
-            radius: 8
-        );
+            radius: 8);
       }
+      grids = temp;
     }
   }
 }
