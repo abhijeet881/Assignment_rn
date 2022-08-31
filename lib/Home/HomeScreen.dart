@@ -1,3 +1,4 @@
+import 'package:assignment_nayab/constant_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -11,7 +12,7 @@ class HomeScreen extends GetView<HomeController> {
     return GetBuilder<HomeController>(builder: (HomeController controllerHome) {
       return Scaffold(
           appBar: AppBar(
-            title: const Text("Assignment"),
+            title:  Text(Constants.title),
           ),
           body: Container(
             margin: const EdgeInsets.all(16),
@@ -33,11 +34,11 @@ class HomeScreen extends GetView<HomeController> {
                           inputFormatters: <TextInputFormatter>[
                             FilteringTextInputFormatter.digitsOnly
                           ],
-                          decoration: const InputDecoration(
-                            hintStyle: TextStyle(fontSize: 17),
-                            hintText: 'Enter Square root number.',
+                          decoration:  InputDecoration(
+                            hintStyle: const TextStyle(fontSize: 17),
+                            hintText: Constants.editTextHint,
                             border: InputBorder.none,
-                            contentPadding: EdgeInsets.all(20),
+                            contentPadding: const EdgeInsets.all(20),
                           ),
                         ),
                       ),
@@ -49,9 +50,9 @@ class HomeScreen extends GetView<HomeController> {
                         onPressed: () {
                           controller.gridLogic();
                         },
-                        child: const Text(
-                          "Submit",
-                          style: TextStyle(color: Colors.white),
+                        child:  Text(
+                          Constants.submit,
+                          style: const TextStyle(color: Colors.white),
                         ))
                   ],
                 ),

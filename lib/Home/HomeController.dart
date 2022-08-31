@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:assignment_nayab/constant_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../Model/ModelGrid.dart';
@@ -69,7 +70,7 @@ class HomeController extends GetxController {
       }else {
         Get.defaultDialog(
             title: "",
-            middleText: "Wow!, You did it!",
+            middleText: Constants.wowText,
             backgroundColor: Colors.white,
             middleTextStyle: const TextStyle(color: Colors.black),
             radius: 8);
